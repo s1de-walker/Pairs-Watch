@@ -50,8 +50,8 @@ data = yf.download([ticker1, ticker2], start=start_date, end=end_date)["Close"]
 returns = data.pct_change().dropna()
 cm_returns = (returns + 1).cumprod() - 1
 
-# Rename columns so that the legend shows correct ticker names
-cm_returns.columns = [ticker1, ticker2]
+# Ensure correct column names
+cm_returns.columns = data.columns  # This preserves the order returned by yfinance
 
 # Plot cumulative returns
 st.subheader("Cumulative Returns")
@@ -112,7 +112,7 @@ col1, col2, col3 = st.columns(3)
 
 # Display R-squared in the first column
 col1.metric(label="R-Squared", value=f"{r_squared:.3f}")
-col1.write(f"Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}, which is moderate.\n")
+col1.write(f"Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}\n")
 
 # Display OLS Beta in the second column
 col2.metric(label="OLS Beta", value=f"{beta:.3f}")
