@@ -84,8 +84,8 @@ st.altair_chart(scatter_plot, use_container_width=True)
 # OLS Regression
 #-------------------------------------------------------------------------
 # Prepare independent (X) and dependent (Y) variables
-X = returns[ticker2]  # Predictor (Independent variable)
-Y = returns[ticker1]  # Response (Dependent variable)
+X = returns[ticker1]  # Predictor (Independent variable)
+Y = returns[ticker2]  # Response (Dependent variable)
 
 # Add constant term for intercept
 X = sm.add_constant(X)
@@ -100,10 +100,10 @@ st.subheader("OLS Regression Results")
 
 # Extract key regression metrics
 r_squared = model.rsquared
-beta = model.params[ticker2]
+beta = model.params[ticker1]
 
-# Compute ADF test
-spread = returns[ticker1] - beta * returns[ticker2]
+# Compute ADF test on residual (spread)
+spread = returns[ticker2] - beta * returns[ticker1]
 adf_pvalue = adfuller(spread)[1]
 
 # Display results
@@ -112,11 +112,11 @@ col1, col2, col3 = st.columns(3)
 
 # Display R-squared in the first column
 col1.metric(label="R-Squared", value=f"{r_squared:.3f}")
-col1.write(f"Relationship Strength: {ticker2} explains {r_squared*100: .0f}% of the variation in {ticker1}, which is moderate.\n")
+col1.write(f"Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}, which is moderate.\n")
 
 # Display OLS Beta in the second column
 col2.metric(label="OLS Beta", value=f"{beta:.3f}")
-col2.write(f"Effect of {ticker2} on {ticker1}: A 1-unit increase in {ticker2} is associated with a {beta:.2f} increase in {ticker1}.\n")
+col2.write(f"Effect of {ticker1} on {ticker2}: A 1-unit increase in {ticker1} is associated with a {beta:.2f} increase in {ticker2}.\n")
 
 # Display ADF Test P-Value in the third column
 col3.metric(label="ADF P-Value", value=f"{adf_pvalue:.3f}")
