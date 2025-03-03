@@ -5,3 +5,4 @@ numpy
 altair
 statsmodels
 scipy
+plotly
