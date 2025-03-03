@@ -6,6 +6,7 @@ import numpy as np
 import streamlit as st
 from datetime import datetime, timedelta
 import altair as alt
+import plotly.express as px
 
 # Import the statsmodels module for regression and the adfuller function
 # Import statsmodels.formula.api
@@ -56,8 +57,27 @@ cm_returns.columns = data.columns  # This preserves the order returned by yfinan
 # Plot cumulative returns
 st.subheader("Cumulative Returns")
 
-# Plot 
-st.line_chart(cm_returns)
+# Reshape data for Plotly
+cm_returns_melted = cm_returns.reset_index().melt(id_vars="Date", var_name="Stock", value_name="Cumulative Return")
+
+# Define custom colors
+color_map = {
+    cm_returns.columns[0]: "#FF4500",  # Fiery Orange
+    cm_returns.columns[1]: "#0074D9",  # Electric Blue
+}
+
+# Create Plotly figure
+fig = px.line(
+    cm_returns_melted,
+    x="Date",
+    y="Cumulative Return",
+    color="Stock",
+    title="Cumulative Returns",
+    color_discrete_map=color_map
+)
+
+# Show chart in Streamlit
+st.plotly_chart(fig)
 
 st.divider()
 
