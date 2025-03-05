@@ -44,6 +44,17 @@ with col1:
 with col2:
     end_date = st.date_input("Select End Date", datetime.today())
 
+# **Validation Checks**
+error_flag = False  # Flag to control execution
+
+if end_date < start_date:
+    st.error("🚨 End Date cannot be earlier than Start Date. Please select a valid range.")
+    error_flag = True
+
+if start_date > datetime.today().date() or end_date > datetime.today().date():
+    st.error("🚨 Dates cannot be in the future. Please select a valid range.")
+    error_flag = True
+
 # Fetch stock data
 #-------------------------------------------------------------------------
 data = yf.download([ticker1, ticker2], start=start_date, end=end_date)["Close"]
