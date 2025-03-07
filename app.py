@@ -81,7 +81,7 @@ if not error_flag:
     col1, col2 = st.columns(2)
     
     col1.metric("📈 Last Close", f"{ticker1}: ${last_close_ticker1:.2f}", f"{pct_change_ticker1:.2f}%")
-    col2.metric("📈 Last Close", f"{ticker2}: ${last_close_ticker2:.2f}", f"{pct_change_ticker2:.2f}%")
+    col2.metric(f"{ticker2}: ${last_close_ticker2:.2f}", f"{pct_change_ticker2:.2f}%")
         
     # Reshape data for Plotly
     cm_returns_melted = cm_returns.reset_index().melt(id_vars="Date", var_name="Stock", value_name="Cumulative Return")
