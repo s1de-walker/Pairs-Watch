@@ -18,7 +18,7 @@ from statsmodels.tsa.stattools import adfuller
 # Streamlit UI title
 st.title("Pairs Watch")
 
-st.write("Pairs Watch app is a quantitative finance tool that helps users analyze potential pairs trading opportunities.")
+st.write(":grey[Pairs Watch app is a quantitative finance tool that helps users analyze potential pairs trading opportunities.]")
 st.write("")
 
 
