@@ -239,8 +239,12 @@ if not error_flag:
     # Calculate the difference in days between the start and end dates
     date_diff = (end_date - start_date).days
 
-    # Numeric input for rolling window period selection (in days)
-    rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
+
+    # Create three columns
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        # Numeric input for rolling window period selection (in days)
+        rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
     
 
     # Check if the rolling window period is greater than the date difference
