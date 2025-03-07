@@ -19,7 +19,7 @@ from statsmodels.tsa.stattools import adfuller
 st.title("Pairs Watch")
 
 st.write("Pairs Watch app is a quantitative finance tool that helps users analyze potential pairs trading opportunities.")
-
+st.write("")
 
 
 #User selections
