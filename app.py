@@ -107,12 +107,12 @@ if not error_flag:
     # Show chart in Streamlit
     st.plotly_chart(fig)
     
-    st.divider()
+    
     
     
     # PART 2: CHECKS
     #===============
-    
+    st.subheader("Cointegration")
     # Create Altair Scatter Plot
     #-------------------------------------------------------------------------
     scatter_plot = alt.Chart(returns.reset_index()).mark_circle(size=60).encode(
@@ -143,7 +143,7 @@ if not error_flag:
     
     # Display regression summary in Streamlit
     #-------------------------------------------------------------------------
-    st.subheader("OLS Regression Results")
+    st.markdown("OLS Regression Results")
     #st.text(model.summary())
     
     # Extract key regression metrics
