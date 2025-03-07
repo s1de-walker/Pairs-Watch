@@ -233,8 +233,8 @@ if not error_flag:
     st.subheader("Relative Risk")
     st.markdown("Rolling Volatility Ratio")
 
-    # Slider for rolling window period selection (in days)
-    rolling_window = st.slider("Select Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
+    # Numeric input for rolling window period selection (in days)
+    rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
 
     # Calculate rolling volatility for each stock
     rolling_volatility_ticker1 = returns[ticker1].rolling(window=rolling_window).std()
