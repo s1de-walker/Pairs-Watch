@@ -144,7 +144,7 @@ if not error_flag:
     
     # Display regression summary in Streamlit
     #-------------------------------------------------------------------------
-    st.markdown("#### OLS Regression Results")
+    st.markdown("OLS Regression Results")
     #st.text(model.summary())
     
     # Extract key regression metrics
@@ -178,7 +178,7 @@ if not error_flag:
     
     # PART 3: COINTEGRATION RESIDUALS
     #================================
-    st.markdown("Cointegration residuals")
+    st.markdown("### Cointegration residuals")
     
     
     # Compute the cointegration residuals
