@@ -90,7 +90,7 @@ if not error_flag:
     # Define custom colors
     color_map = {
         cm_returns.columns[0]: "#fb580d",  # Fiery Orange
-        cm_returns.columns[1]: "#c1ffff",  # Electric Blue
+        cm_returns.columns[1]: "#5cc8e2",  # Electric Blue
     }
     
     # Create Plotly figure
