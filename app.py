@@ -25,7 +25,7 @@ st.write("")
 #User selections
 #-------------------------------------------------------------------------
 # Stock selection list
-ticker_options = ["SPY", "QQQ", "AAPL", "GOOGL", "MSFT", "AMZN", "TSLA", "NVDA", "AMD", "META", "NFLX", "NKE"]
+ticker_options = ["SPY", "QQQ", "AAPL", "GOOGL", "MSFT", "AMZN", "TSLA", "NVDA", "AMD", "META", "NFLX", "NKE", "ADDYY"]
 
 # User inputs
 col1, col2 = st.columns(2)
