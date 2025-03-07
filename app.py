@@ -144,7 +144,7 @@ if not error_flag:
     
     # Display regression summary in Streamlit
     #-------------------------------------------------------------------------
-    st.markdown("OLS Regression Results")
+    st.markdown("#### OLS Regression Results")
     #st.text(model.summary())
     
     # Extract key regression metrics
