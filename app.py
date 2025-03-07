@@ -241,7 +241,7 @@ if not error_flag:
 
     # Numeric input for rolling window period selection (in days)
     rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
-    st.write("*:grey[This should be less than the number of days for the selected time period above]*")
+    
 
     # Check if the rolling window period is greater than the date difference
 if rolling_window > date_diff:
