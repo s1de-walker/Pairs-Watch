@@ -232,6 +232,7 @@ if not error_flag:
     #-------------------------------------------------------------------------
     st.subheader("Relative Risk")
     #st.markdown("Rolling Volatility Ratio")
+    st.write(":grey[This should be less than the number of days for the selected time period above]")
 
     # Numeric input for rolling window period selection (in days)
     rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
@@ -260,6 +261,8 @@ if not error_flag:
     
     # Show chart in Streamlit
     st.plotly_chart(fig_volatility_ratio)
+
+    
     
     
     
