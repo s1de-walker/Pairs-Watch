@@ -164,19 +164,19 @@ if not error_flag:
     # Display R-squared in the first column
     col1.metric(label="R-Squared", value=f"{r_squared:.3f}")
     # Use Streamlit's built-in color formatting
-    col1.markdown(f":grey[Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}]")
+    col1.markdown(f"*:grey[Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}]*")
     
     # Display OLS Beta in the second column
     col2.metric(label="OLS Beta", value=f"{beta:.3f}")
-    col2.write(f":grey[Effect of {ticker1} on {ticker2}: A 1-unit increase in {ticker1} is associated with a {beta:.2f} increase in {ticker2}.\n]")
+    col2.write(f"*:grey[Effect of {ticker1} on {ticker2}: A 1-unit increase in {ticker1} is associated with a {beta:.2f} increase in {ticker2}.\n]*")
     
     # Display ADF Test P-Value in the third column
     col3.metric(label="ADF P-Value", value=f"{adf_pvalue:.3f}")
     
     if adf_pvalue < 0.05:
-        col3.write(f":grey[✅ The spread is **stationary** (p-value: {adf_pvalue:.3f})]")
+        col3.write(f"*:grey[✅ The spread is **stationary** (p-value: {adf_pvalue:.3f})]*")
     else:
-        col3.write(f"❌ The spread is **non-stationary** (p-value: {adf_pvalue:.3f})")
+        col3.write(f"*❌ The spread is **non-stationary** (p-value: {adf_pvalue:.3f})*")
     #--------------------------------------------------------------------------------------------------------------------------------------------
     
     # PART 3: COINTEGRATION RESIDUALS
@@ -279,4 +279,6 @@ if not error_flag:
     
         # Show chart in Streamlit
         st.plotly_chart(fig_volatility_ratio)
+
+        st.write("*:grey[A sudden spike (in either direction) suggests market stress or some event affecting one nore than the other.]*")
         
