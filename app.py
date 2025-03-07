@@ -43,6 +43,8 @@ with col1:
 with col2:
     end_date = st.date_input("Select End Date", datetime.today())
 
+st.write("")
+
 # **Validation Checks**
 error_flag = False  # Flag to control execution
 
