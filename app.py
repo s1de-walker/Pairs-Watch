@@ -165,7 +165,7 @@ if not error_flag:
     
     # Display OLS Beta in the second column
     col2.metric(label="OLS Beta", value=f"{beta:.3f}")
-    col2.write(f"Effect of {ticker1} on {ticker2}: A 1-unit increase in {ticker1} is associated with a {beta:.2f} increase in {ticker2}.\n")
+    col2.write(f":grey[Effect of {ticker1} on {ticker2}: A 1-unit increase in {ticker1} is associated with a {beta:.2f} increase in {ticker2}.\n]")
     
     # Display ADF Test P-Value in the third column
     col3.metric(label="ADF P-Value", value=f"{adf_pvalue:.3f}")
