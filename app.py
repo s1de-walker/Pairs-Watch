@@ -207,7 +207,7 @@ if not error_flag:
 
     
     # User input for percentile selection
-    percentile_options = [1, 3, 5]
+    percentile_options = [0.3, 0.62, 1, 3, 5]
 
     # Create three columns
     col1, col2, col3 = st.columns(3)
