@@ -237,8 +237,8 @@ if not error_flag:
     rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
 
     # Calculate rolling volatility for each stock
-    rolling_volatility_ticker1 = returns[ticker1].rolling(window=rolling_window).std()
-    rolling_volatility_ticker2 = returns[ticker2].rolling(window=rolling_window).std()
+    rolling_volatility_ticker1 = returns[ticker1].rolling(window=rolling_window).std().dropna()
+    rolling_volatility_ticker2 = returns[ticker2].rolling(window=rolling_window).std().dropna()
 
     # Calculate rolling volatility ratio (ticker1 / ticker2)
     rolling_volatility_ratio = rolling_volatility_ticker1 / rolling_volatility_ticker2
