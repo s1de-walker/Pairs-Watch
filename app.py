@@ -68,7 +68,26 @@ if not error_flag:
     
     # Plot cumulative returns
     st.subheader("Market Summary")
+
+    # Fetch the last traded price (close) for each stock
+    last_close_ticker1 = data[ticker1].iloc[-1]
+    last_close_ticker2 = data[ticker2].iloc[-1]
     
+    # Calculate the percentage change for each stock
+    pct_change_ticker1 = returns[ticker1].iloc[-1] * 100
+    pct_change_ticker2 = returns[ticker2].iloc[-1] * 100
+    
+    # Display metrics in two columns
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.metric(label=f"{ticker1} Last Close", value=f"${last_close_ticker1:.2f}")
+        st.metric(label=f"{ticker1} % Change", value=f"{pct_change_ticker1:.2f}%")
+    
+    with col2:
+        st.metric(label=f"{ticker2} Last Close", value=f"${last_close_ticker2:.2f}")
+        st.metric(label=f"{ticker2} % Change", value=f"{pct_change_ticker2:.2f}%")
+        
     # Reshape data for Plotly
     cm_returns_melted = cm_returns.reset_index().melt(id_vars="Date", var_name="Stock", value_name="Cumulative Return")
     
