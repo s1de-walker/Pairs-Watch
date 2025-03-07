@@ -84,13 +84,12 @@ if not error_flag:
     # Display metrics in two columns with custom colors
     col1, col2 = st.columns(2)
     
+    # Custom HTML for colored text
     col1.markdown(f"<h3 style='color:{color_ticker1};'>{ticker1}</h3>", unsafe_allow_html=True)
-    col1.markdown(f"<h3 style='color:{color_ticker1};'>${last_close_ticker1:.2f}</h3>", unsafe_allow_html=True)
-    col1.metric("", f"{pct_change_ticker1:.2f}%")
+    col1.metric("", f"${last_close_ticker1:.2f}", f"{pct_change_ticker1:.2f}%")
     
     col2.markdown(f"<h3 style='color:{color_ticker2};'>{ticker2}</h3>", unsafe_allow_html=True)
-    col2.markdown(f"<h3 style='color:{color_ticker2};'>${last_close_ticker2:.2f}</h3>", unsafe_allow_html=True)
-    col2.metric("", f"{pct_change_ticker2:.2f}%")
+    col2.metric("", f"${last_close_ticker2:.2f}", f"{pct_change_ticker2:.2f}%")
         
     # Reshape data for Plotly
     cm_returns_melted = cm_returns.reset_index().melt(id_vars="Date", var_name="Stock", value_name="Cumulative Return")
