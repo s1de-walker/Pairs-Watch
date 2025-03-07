@@ -113,6 +113,7 @@ if not error_flag:
     # PART 2: CHECKS
     #===============
     st.subheader("Cointegration")
+    
     # Create Altair Scatter Plot
     #-------------------------------------------------------------------------
     scatter_plot = alt.Chart(returns.reset_index()).mark_circle(size=60).encode(
@@ -174,11 +175,10 @@ if not error_flag:
     else:
         col3.write(f"❌ The spread is **non-stationary** (p-value: {adf_pvalue:.3f})")
     
-    st.divider()
     
     # PART 3: COINTEGRATION RESIDUALS
     #================================
-    st.subheader("Cointegration residuals")
+    st.markdown("Cointegration residuals")
     
     
     # Compute the cointegration residuals
