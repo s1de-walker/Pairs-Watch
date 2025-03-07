@@ -110,7 +110,7 @@ if not error_flag:
     
     # PART 2: CHECKS
     #===============
-    
+    st.divider()
     st.subheader("Cointegration")
     
     # Create Altair Scatter Plot
