@@ -112,8 +112,6 @@ if not error_flag:
     
     # PART 2: CHECKS
     #===============
-    st.write(" ")
-    st.write(" ")
     
     st.subheader("Cointegration")
     
@@ -181,6 +179,8 @@ if not error_flag:
     
     # PART 3: COINTEGRATION RESIDUALS
     #================================
+    st.write(" ")
+    st.write(" ")
     st.markdown("### Cointegration residuals")
     
     
