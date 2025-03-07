@@ -200,7 +200,7 @@ if not error_flag:
     
     # Final plot
     #-------------------------------------------------------------------------
-    st.write("")
+
     
     # User input for percentile selection
     percentile_options = [1, 3, 5]
