@@ -67,7 +67,7 @@ if not error_flag:
     cm_returns.columns = data.columns  # This preserves the order returned by yfinance
     
     # Plot cumulative returns
-    st.subheader("Cumulative Returns")
+    st.subheader("Market Summary")
     
     # Reshape data for Plotly
     cm_returns_melted = cm_returns.reset_index().melt(id_vars="Date", var_name="Stock", value_name="Cumulative Return")
