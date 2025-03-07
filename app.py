@@ -88,7 +88,7 @@ if not error_flag:
     
     # Define custom colors
     color_map = {
-        cm_returns.columns[0]: "#FF4500",  # Fiery Orange
+        cm_returns.columns[0]: "#fb580d",  # Fiery Orange
         cm_returns.columns[1]: "#0074D9",  # Electric Blue
     }
     
