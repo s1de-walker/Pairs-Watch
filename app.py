@@ -1,5 +1,5 @@
 # Libraries
-#-------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------------------------
 import yfinance as yf
 import pandas as pd
 import numpy as np
@@ -12,6 +12,7 @@ import plotly.express as px
 # Import statsmodels.formula.api
 import statsmodels.api as sm
 from statsmodels.tsa.stattools import adfuller
+#--------------------------------------------------------------------------------------------------------------------------------------------
 
 # PART 1: TAKING INPUTS AND INITIALIZATION
 #=========================================
@@ -23,7 +24,7 @@ st.write("")
 
 
 #User selections
-#-------------------------------------------------------------------------
+
 # Stock selection list
 ticker_options = ["SPY", "QQQ", "AAPL", "GOOGL", "MSFT", "AMZN", "TSLA", "NVDA", "AMD", "META", "NFLX", "NKE", "ADDYY", "QUAL", "MTUM", "USMV", "VLUE"]
 
@@ -44,7 +45,7 @@ with col2:
     end_date = st.date_input("Select End Date", datetime.today())
 
 
-
+#--------------------------------------------------------------------------------------------------------------------------------------------
 # **Validation Checks**
 error_flag = False  # Flag to control execution
 
@@ -55,7 +56,8 @@ if end_date < start_date:
 if start_date > datetime.today().date() or end_date > datetime.today().date():
     st.error("🚨 Dates cannot be in the future. Please select a valid range.")
     error_flag = True
-    
+#--------------------------------------------------------------------------------------------------------------------------------------------
+
 if not error_flag:
     # Fetch stock data
     #-------------------------------------------------------------------------
@@ -106,7 +108,7 @@ if not error_flag:
     
     # Show chart in Streamlit
     st.plotly_chart(fig)
-    
+    #--------------------------------------------------------------------------------------------------------------------------------------------
     
     # PART 2: CHECKS
     #===============
@@ -174,7 +176,7 @@ if not error_flag:
         col3.write(f":grey[✅ The spread is **stationary** (p-value: {adf_pvalue:.3f})]")
     else:
         col3.write(f"❌ The spread is **non-stationary** (p-value: {adf_pvalue:.3f})")
-    
+    #--------------------------------------------------------------------------------------------------------------------------------------------
     
     # PART 3: COINTEGRATION RESIDUALS
     #================================
@@ -224,3 +226,4 @@ if not error_flag:
     
     # Display in Streamlit
     st.line_chart(df_coint_plot)
+    #--------------------------------------------------------------------------------------------------------------------------------------------
