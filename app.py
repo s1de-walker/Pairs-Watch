@@ -107,8 +107,6 @@ if not error_flag:
     # Show chart in Streamlit
     st.plotly_chart(fig)
     
-   st.divider() 
-    
     
     # PART 2: CHECKS
     #===============
