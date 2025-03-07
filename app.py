@@ -160,7 +160,8 @@ if not error_flag:
     
     # Display R-squared in the first column
     col1.metric(label="R-Squared", value=f"{r_squared:.3f}")
-    col1.write(:grey[f"Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}\n"])
+    # Use Streamlit's built-in color formatting
+    col1.markdown(f":blue[Relationship Strength: {ticker1} explains {r_squared*100:.0f}% of the variation in {ticker2}]")
     
     # Display OLS Beta in the second column
     col2.metric(label="OLS Beta", value=f"{beta:.3f}")
