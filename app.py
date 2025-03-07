@@ -212,7 +212,7 @@ if not error_flag:
     # Create three columns
     col1, col2, col3 = st.columns(3)
     with col1:
-        selected_percentile = st.selectbox("Select Percentile", percentile_options, index=1)
+        selected_percentile = st.selectbox("Select Percentile", percentile_options, index=2)
     
     # Compute actual percentile values
     lower_percentile = np.quantile(df_coint, selected_percentile / 100)  # Convert to fraction
