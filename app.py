@@ -40,7 +40,7 @@ with col2:
 # Date range selection
 col1, col2 = st.columns(2)
 with col1:
-    start_date = st.date_input("Select Start Date", datetime.today() - timedelta(days=180))
+    start_date = st.date_input("Select Start Date", datetime.today() - timedelta(days=365))
 with col2:
     end_date = st.date_input("Select End Date", datetime.today())
 
