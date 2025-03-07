@@ -71,7 +71,7 @@ if not error_flag:
     
     # Plot cumulative returns
     st.subheader("Market Summary")
-
+    #-------------------------------------------------------------------------
     # Fetch the last traded price (close) for each stock
     last_close_ticker1 = data[ticker1].iloc[-1]
     last_close_ticker2 = data[ticker2].iloc[-1]
@@ -114,6 +114,7 @@ if not error_flag:
     #===============
     st.divider()
     st.subheader("Cointegration")
+    #-------------------------------------------------------------------------
     
     # Create Altair Scatter Plot
     #-------------------------------------------------------------------------
@@ -183,7 +184,7 @@ if not error_flag:
     st.write(" ")
     st.write(" ")
     st.markdown("### Cointegration residuals")
-    
+    #-------------------------------------------------------------------------
     
     # Compute the cointegration residuals
     #-------------------------------------------------------------------------
@@ -227,3 +228,9 @@ if not error_flag:
     # Display in Streamlit
     st.line_chart(df_coint_plot)
     #--------------------------------------------------------------------------------------------------------------------------------------------
+    st.write("⚠️ Work in progress beyond this ⚠️")
+    #-------------------------------------------------------------------------
+    st.markdown("### Relative Risk")
+    
+    
+    
