@@ -228,29 +228,41 @@ if not error_flag:
     # Display in Streamlit
     st.line_chart(df_coint_plot)
     #--------------------------------------------------------------------------------------------------------------------------------------------
+    #-Part 2
+    #--------------------------------------------------------------------------------------------------------------------------------------------
     st.write("⚠️ Work in progress beyond this ⚠️")
     #-------------------------------------------------------------------------
     st.subheader("Relative Risk")
     #st.markdown("Rolling Volatility Ratio")
-    
+
+
+    # Calculate the difference in days between the start and end dates
+    date_diff = (end_date - start_date).days
 
     # Numeric input for rolling window period selection (in days)
     rolling_window = st.number_input("Enter Rolling Window Period (in days)", min_value=1, max_value=365, value=30)
     st.write("*:grey[This should be less than the number of days for the selected time period above]*")
 
+    # Check if the rolling window period is greater than the date difference
+if rolling_window > date_diff:
+    st.error("Rolling window period cannot be greater than the difference between the start and end dates.")
+else:
     # Calculate rolling volatility for each stock
     rolling_volatility_ticker1 = returns[ticker1].rolling(window=rolling_window).std().dropna()
     rolling_volatility_ticker2 = returns[ticker2].rolling(window=rolling_window).std().dropna()
 
     # Calculate rolling volatility ratio (ticker1 / ticker2)
     rolling_volatility_ratio = rolling_volatility_ticker1 / rolling_volatility_ticker2
-    
+
+    # Drop NaN values to start the chart from where the data is available
+    rolling_volatility_ratio = rolling_volatility_ratio.dropna()
+
     # Create a DataFrame for plotting
     rolling_volatility_df = pd.DataFrame({
         'Date': rolling_volatility_ratio.index,
         'Rolling Volatility Ratio': rolling_volatility_ratio.values
     })
-    
+
     # Create Plotly figure for rolling volatility ratio
     fig_volatility_ratio = px.line(
         rolling_volatility_df,
@@ -259,12 +271,7 @@ if not error_flag:
         title=f"Rolling Volatility Ratio ({ticker1} / {ticker2})",
         labels={'Rolling Volatility Ratio': 'Volatility Ratio'}
     )
-    
+
     # Show chart in Streamlit
     st.plotly_chart(fig_volatility_ratio)
-
-    
-    
-    
-    
     
