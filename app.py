@@ -280,5 +280,5 @@ if not error_flag:
         # Show chart in Streamlit
         st.plotly_chart(fig_volatility_ratio)
 
-        st.write("***:grey[A sudden spike (in either direction) suggests market stress or some event affecting one nore than the other.]***")
+        st.write("***:grey[A sudden spike (in either direction) suggests market stress or some event affecting one more than the other.]***")
         
