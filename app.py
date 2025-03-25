@@ -61,7 +61,7 @@ if start_date > datetime.today().date() or end_date > datetime.today().date():
 if not error_flag:
     # Fetch stock data
     #-------------------------------------------------------------------------
-    data = yf.download([ticker1, ticker2], start=start_date, end=end_date + timedelta(days=1))["Close"]
+    data = yf.download([ticker1, ticker2], start=start_date, end=end_date)["Close"]
     
     returns = data.pct_change().dropna()
     cm_returns = (returns + 1).cumprod() - 1
